@@ -16,6 +16,8 @@ export class AppComponent {
     this.todos.push('passear com cachorro');
     this.todos.push('ir ao super mercado');
     this.todos.push('cortar cabelo');
+    this.todos.push('Aprender a pegar o onibus no terminal');
+    this.todos.push('Tentar usar um celular que nao seja apple');
 
   }
 

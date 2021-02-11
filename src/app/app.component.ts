@@ -20,7 +20,28 @@ export class AppComponent {
 
   }
 
+
+remove (todo : Todo){
+  const index = this.todos.indexOf(todo);
+  if (index !== -1){
+    // verifica se o todo esta na lista, se for !== -1 está na lista,
+      // ai pode remover
+    this.todos.splice(index, 1);
+    // pega o item que vai ser removido e diz quantos item precisa remover
+  }
+}
+
+  markAsDone(todo: Todo) {
+    todo.done = true;
+  }
+
+  markAsUndone(todo: Todo) {
+    todo.done = false;
+  }
+
   alterarTexto(){
     this.title = 'Texto alterado'
   }
 }
+
+

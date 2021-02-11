@@ -1,7 +1,8 @@
 export class Todo {
 
-    public id : number = 1;
-    public todo : string;
-    public done : boolean;
-       
+    constructor(
+    public id : Number = 1,
+    public title : String,
+    public done : Boolean
+    ){}
 }

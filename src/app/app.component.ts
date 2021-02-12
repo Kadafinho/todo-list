@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Todo } from './models/todo.models';
+import { title } from 'process';
 
 
 
@@ -49,7 +50,17 @@ remove (todo : Todo){
     this.title = 'Texto alterado'
   }
 
+  add(){
+    const title = this.form.controls['title'].value;
+    const id = this.todos.length + 1;
+    this.todos.push(new Todo(id, title, false));
+    this.clear();
+  }
   
+
+  clear() {
+    this.form.reset();
+  }
 }
 
 

@@ -34,16 +34,20 @@ remove (todo : Todo){
     // verifica se o todo esta na lista, se for !== -1 está na lista,
       // ai pode remover
     this.todos.splice(index, 1);
+    
     // pega o item que vai ser removido e diz quantos item precisa remover
   }
+  this.saveData();
 }
 
   markAsDone(todo: Todo) {
     todo.done = true;
+    this.saveData();
   }
 
   markAsUndone(todo: Todo) {
     todo.done = false;
+    this.saveData();
   }
 
   alterarTexto(){
@@ -55,11 +59,22 @@ remove (todo : Todo){
     const id = this.todos.length + 1;
     this.todos.push(new Todo(id, title, false));
     this.clear();
+    this.saveData();
   }
   
 
   clear() {
     this.form.reset();
+  }
+
+  saveData(){
+    const data = JSON.stringify(this.todos);
+    localStorage.setItem('todos', data);
+  }
+
+  loadData() {
+    const data = localStorage.getItem('todos');
+    this.todos = JSON.parse(data);
   }
 }
 

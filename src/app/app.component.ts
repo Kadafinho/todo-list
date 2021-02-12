@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Todo } from './models/todo.models';
+
 
 
 @Component({
@@ -10,13 +12,17 @@ import { Todo } from './models/todo.models';
 export class AppComponent {
   public todos : Todo[] = [];
   public title : string = 'Minhas tarefas';
+  public form : FormGroup;
 
-  constructor() {
+  constructor(private fb : FormBuilder) {
 
-    this.todos.push(new Todo(1, 'Passear com o cachorro', false));
-    this.todos.push(new Todo(2, 'ir no mercado', true));
-    this.todos.push(new Todo(3, 'cortar o cabelo', false));
-  
+    this.form = this.fb.group({
+      title : ['', Validators.compose([
+        Validators.minLength(3),
+        Validators.maxLength(60),
+        Validators.required
+      ])]
+    });
 
   }
 
@@ -42,6 +48,8 @@ remove (todo : Todo){
   alterarTexto(){
     this.title = 'Texto alterado'
   }
+
+  
 }
 
 

@@ -3,9 +3,9 @@
   <p *ngIf="todos.length==0"><small>Você ainda não tem tarefas hoje</small></p>
   
   <li *ngFor="let todo of todos"> {{ todo.id }} -
-    {{ todo.title }} - {{ todo.done }} |
-    <button *ngIf="todo.done" (click)="markAsUndone(todo)">Refazer</button> |
-     <button *ngIf="!todo.done" (click)="markAsDone(todo)">Concluir</button> |
+    {{ todo.title }} - {{ todo.done }} 
+    <button *ngIf="todo.done" (click)="markAsUndone(todo)">Refazer</button> 
+     <button *ngIf="!todo.done" (click)="markAsDone(todo)">Concluir</button> 
      <button (click)="remove(todo)"> Remover</button></li>
 </ul>
 
